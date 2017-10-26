@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-valley-photo-view" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ValleyPhotoView</name>
+
+    <description>A Cordova plugin that allows easy picking of the image from a gallery</description>
+
+    <engines>
+        <engine name="cordova" version=">=3.6.0" />
+    </engines>
+    
+    <js-module name="ValleyPhotoView" src="www/ValleyPhotoView.js">
+        <clobbers target="ValleyPhotoView" />
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="ValleyPhotoView">
+                <param name="android-package" value="com.chinavvv.plugin.ValleyPhotoView" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.chinavvv.plugin.MultiImageSelect"
+                      android:theme="@style/AppTheme"/>
+            <activity android:name="me.iwf.photopicker.PhotoPickerActivity"
+                      android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+            <activity android:name="me.iwf.photopicker.PhotoPagerActivity"
+                      android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <resource-file src="src/android/res/colors.xml" target="res/values/colors.xml" />
+        <resource-file src="src/android/res/styles.xml" target="res/values/styles.xml" />
+
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+
+        <source-file src="src/android/ValleyPhotoView.java" target-dir="src/com/chinavvv/plugin"/>
+        <source-file src="src/android/MultiImageSelect.java" target-dir="src/com/chinavvv/plugin"/>
+    </platform>
+
+	<!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ValleyPhotoView">
+                <param name="ios-package" value="ValleyPhotoViewPlugin" />
+            </feature>
+        </config-file>
+
+        <dependency id="cordova-plugin-cocoapod-support"/>
+        <dependency id="cordova-plugin-add-swift-support"/>
+
+        <pods-config ios-min-version="9.0" use-frameworks="true">
+        </pods-config>
+        <pod name="SKPhotoBrowser" git="https://github.com/suzuki-0000/SKPhotoBrowser" branch="master" />
+        <source-file src="src/ios/CDVValleyPhotoView.swift" />
+        <source-file src="src/ios/SKPhotoView.swift" />
+
+    </platform>
+</plugin>
