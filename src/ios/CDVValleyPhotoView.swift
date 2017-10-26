@@ -3,8 +3,8 @@ import SKPhotoBrowser
 
 @objc(ValleyPhotoViewPlugin) class ValleyPhotoView: CDVPlugin, SKPhotoBrowserDelegate {
 
-    @objc(selectPhotos:)
-    func selectPhotos(command: CDVInvokedUrlCommand) {
+    @objc(showPhotos:)
+    func showPhotos(command: CDVInvokedUrlCommand) {
             print("here")
 
             if command.arguments != nil && command.arguments.count > 0 {

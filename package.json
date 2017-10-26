@@ -1,7 +1,7 @@
 {
   "name": "cordova-valley-photo-view",
   "version": "0.0.1",
-  "description": "一个多图浏览插件",
+  "description": "鍥剧墖棰勮鎻掍欢",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -32,16 +32,14 @@ public class ValleyPhotoView extends CordovaPlugin {
 
       //Take the values from the arguments
       intent.putExtra("maxImages", args.getInt(0));
-
       this.quality = args.getInt(1);
-
-      intent.putExtra("images", args.getString(2));
-
-      intent.putExtra("current", args.getInt(3));
 
       cordova.startActivityForResult(this, intent, 0);
     } else if (action.equals("showPhotos")) {
-      //recyclerViewShowOnly.init(this,MultiPickResultView.ACTION_ONLY_SHOW,pathslook);
+      Intent intent = new Intent(cordova.getActivity(), MultiImageSelect.class);
+      intent.putExtra("images", args.getString(0));
+      intent.putExtra("current", args.getInt(1));
+      cordova.startActivityForResult(this, intent, 0);
     }
     return true;
   }
