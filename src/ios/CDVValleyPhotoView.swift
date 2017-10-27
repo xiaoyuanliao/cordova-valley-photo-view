@@ -8,8 +8,8 @@ import SKPhotoBrowser
             print("here")
 
             if command.arguments != nil && command.arguments.count > 0 {
-                let imageStr = command.arguments[2] as! String
-                let current = command.arguments[3] as! Int
+                let imageStr = command.arguments[0] as! String
+                let current = command.arguments[1] as! Int
                 
                 if imageStr.isEmpty {
                     
