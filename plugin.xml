@@ -58,7 +58,7 @@
 
         <pods-config ios-min-version="9.0" use-frameworks="true">
         </pods-config>
-        <pod name="SKPhotoBrowser" git="https://github.com/suzuki-0000/SKPhotoBrowser" branch="master" />
+        <pod name="SKPhotoBrowser" git="https://github.com/suzuki-0000/SKPhotoBrowser" tag="5.0.0" />
         <source-file src="src/ios/CDVValleyPhotoView.swift" />
         <source-file src="src/ios/SKPhotoView.swift" />
 
