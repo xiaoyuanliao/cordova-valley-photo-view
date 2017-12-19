@@ -18,5 +18,12 @@ module.exports = {
             "ValleyPhotoView",
             "showPhotos",
             [images,current]);
+    },
+    requestPermission: function(successCallback, errorCallback) {
+        cordova.exec(successCallback,
+            errorCallback, // No failure callback
+            "ValleyPhotoView",
+            "requestPermission",
+            []);
     }
 };
